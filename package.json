@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Ali Alnoaimi",
-  "license": "ISC",
+  "author": "Ali Alnoaimi (ali@aleecode.dev)",
+  "license": "MIT",
   "dependencies": {
     "mysql": "^2.18.1",
     "qs": "^6.9.4"
