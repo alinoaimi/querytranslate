@@ -90,6 +90,6 @@ npm install @alinoaimi/querytranslate
 ```
 then define it:
 ```javascript
-const QueryTranslate = require('querytranslate`)
+const QueryTranslate = require('querytranslate')
 ```
 
