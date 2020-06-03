@@ -10,6 +10,7 @@ npm install @alinoaimi/querytranslate --save
 then define it:
 ```javascript
 const QueryTranslate = require('query_translate'); // using require
+import QueryTranslate from 'query_translate' // es6 import
 ```
 
 **manually:**
@@ -17,6 +18,7 @@ const QueryTranslate = require('query_translate'); // using require
 place the library files somwhere in your project, than require it
 ```javascript
 const QueryTranslate = require('path/to/query_translate'); // using require
+import QueryTranslate from 'path/to/query_translate' // es6 import
 ```
 
 You can then access it using *QueryTranslate.translate(...)*

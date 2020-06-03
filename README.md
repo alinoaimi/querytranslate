@@ -86,10 +86,11 @@ Easy Object Output:
 ## Quick Start
 via npm
 ```bash
-npm install @alinoaimi/querytranslate
+npm install @alinoaimi/query_translate
 ```
 then define it:
 ```javascript
-const QueryTranslate = require('querytranslate')
+const QueryTranslate = require('querytranslate') // using require
+import QueryTranslate from 'query_translate' // es6 import
 ```
 

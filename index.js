@@ -15,7 +15,12 @@ exports.translate = function (params) {
 
     toReturn = {};
 
-    let parsedQuery = qs.parse(params.query);
+    let parsedQuery
+    if(typeof params.query) {
+        parsedQuery = params.query
+    } else {
+        parsedQuery = qs.parse(params.query);
+    }
 
 
 
