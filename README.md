@@ -1,5 +1,10 @@
 ## QueryTranslate
-QueryTranslate is a small Javascript library that converts HTTP GET Query Paramters to an easy to handle Javascript object, SQL Query or KnexJS object.
+QueryTranslate is a small Javascript library that converts HTTP GET Query Paramters to an easy to handle Javascript object, SQL Query or KnexJS object to simplify returning lists via GET requests in REST APIs with complex filters.
+
+Supported output formats: SQL Query, KnexJS Object, Javascript Object (check the documentation)
+
+### Motives
+I was working on a REST API, while strictly following Google's API Design guidelines, according to it, and most other guidelines, GET requests should be used to list items, without passing a body, therefore, the only way to pass filters and options is via the URL, as query parameters. Describing, parsing and handling complex options via query params could be a long process, and result in a long code, to simplify the process, I created this library, and defined a standard way to pass the options via query params.
 
 ## Quick Example
 Let's say you are building a rest API, using GET method to return a collection list
@@ -15,7 +20,7 @@ GET https://example.com/api/v1/users?filter[age][gt]=18&filter[language][in]=eng
 
 will be converted to
 
-SQL
+Translate to SQL
 ```Javascript
 let translatedQuery = QueryTranslate.translate({
     format: 'sql',
@@ -23,11 +28,11 @@ let translatedQuery = QueryTranslate.translate({
     tableName: 'users'
 });
 ```
-result:
+SQL Output:
 ```sql
-SELECT id,name,country,language,points FROM `users` WHERE age > 18 AND language IN (`english`,`arabic`) ORDER BY points DESC, id DESC
+SELECT `id`,`name`,`country`,`language`,`points` FROM `users` WHERE age > 18 AND language IN (`english`,`arabic`) ORDER BY points DESC, id DESC
 ```
-Easy Object
+Translate to Easy Object
 ```Javascript
 let translatedQuery = QueryTranslate.translate({
     format: 'easy',
@@ -35,7 +40,7 @@ let translatedQuery = QueryTranslate.translate({
     tableName: 'users'
 });
 ```
-result:
+Easy Object Output:
 ```Javascript
 {
    "tableName":"users",
@@ -73,3 +78,14 @@ result:
    ]
 }
 ```
+
+## Quick Start
+via npm
+```bash
+npm install @alinoaimi/querytranslate
+```
+then define it:
+```javascript
+const QueryTranslate = require('querytranslate`)
+```
+

@@ -16,6 +16,13 @@ function buildSQL(easy) {
 
     console.log(typeof easy.columns)
     if(Array.isArray(easy.columns)) {
+
+        let columnI = 0;
+        for(let column of easy.columns) {
+            easy.columns[columnI] = '`'+easy.columns[columnI]+'`';
+            columnI++;
+        }
+
         fromVal = easy.columns.join()
     }
 
