@@ -41,7 +41,7 @@ less than < | filter[column_name][lt]=value | ?filter[score][lt]=100
 greater than or equal to <= | filter[column_name][lte]=value | ?filter[score][lte]=100
 larger than or equal to >= | filter[column_name][lge]=value | ?filter[score][lge]=500
 **In** |
-Where In | filter[column_name][in]=value1 | ?filter[lang][in]=ar&filter[lang][in]=en | equivelant to SQL: WHERE value IN (array), or if array contains
+where in | filter[column_name][in]=value1 | ?filter[lang][in]=ar&filter[lang][in]=en | equivelant to SQL: WHERE value IN (array), or if array contains
 **Sort** |
 sort by | sort[]=column,type(optional) | ?sort[]=id<br>?sort[]=id,desc<br>?sort[]=id,asc<br>?sort[]=id,desc&sort[]=score,asc | sort is an array, you can pass multiple sort parameters as in the last example
 **Columns** |

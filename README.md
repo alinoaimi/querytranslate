@@ -1,4 +1,5 @@
 ![npm](https://img.shields.io/npm/v/query_translate)
+
 ## QueryTranslate
 QueryTranslate is a small Javascript library that converts HTTP GET Query Paramters to an easy to handle Javascript object, SQL Query or KnexJS object to simplify returning lists via GET requests in REST APIs with complex filters.
 
@@ -8,7 +9,7 @@ Supported output formats: SQL Query, KnexJS Object, Javascript Object (check the
 I was working on a REST API, while strictly following Google's API Design guidelines, according to it, and most other guidelines, GET requests should be used to list items, without passing a body, therefore, the only way to pass filters and options is via the URL, as query parameters. Describing, parsing and handling complex options via query params could be a long process, and result in a long code, to simplify the process, I created this library, and defined a standard way to pass the options via query params.
 
 ## Links
-* [Documentation](https://github.com/alinoaimi/querytranslate/blob/master/documentation.md)
+* [**Documentation**](https://github.com/alinoaimi/querytranslate/blob/master/documentation.md)
 * [NPM](https://www.npmjs.com/package/query_translate)
 ## Quick Example
 Let's say you are building a rest API, using GET method to return a collection list
@@ -90,7 +91,7 @@ npm install @alinoaimi/query_translate
 ```
 then define it:
 ```javascript
-const QueryTranslate = require('querytranslate') // using require
+const QueryTranslate = require('query_translate') // using require
 import QueryTranslate from 'query_translate' // es6 import
 ```
 
