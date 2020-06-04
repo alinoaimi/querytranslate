@@ -87,7 +87,7 @@ Easy Object Output:
 ## Quick Start
 via npm
 ```bash
-npm install @alinoaimi/query_translate
+npm install query_translate
 ```
 then define it:
 ```javascript

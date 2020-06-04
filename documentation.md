@@ -5,7 +5,7 @@ QueryTranslate is a small Javascript library that converts HTTP GET Query Paramt
 ## Setup
 **via npm:**
 ```
-npm install @alinoaimi/querytranslate --save
+npm install query_translate --save
 ```
 then define it:
 ```javascript
