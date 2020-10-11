@@ -16,7 +16,7 @@ exports.translate = function (params) {
     toReturn = {};
 
     let parsedQuery
-    if(typeof params.query) {
+    if(typeof params.query == 'object') {
         parsedQuery = params.query
     } else {
         parsedQuery = qs.parse(params.query);
@@ -47,7 +47,13 @@ exports.translate = function (params) {
                     for (let filterSubKey of Object.keys(filterVal)) {
                         const filterSubVal = filterVal[filterSubKey]
 
-                        if (filterSubKey == 'gt') { // [gt] GREATER THAN
+                        if (filterSubKey == 'not') { // [gt] GREATER THAN
+                            wheres.push({
+                                'column': filterKey,
+                                'condition': '<>',
+                                'value': filterSubVal
+                            })
+                        } else if (filterSubKey == 'gt') { // [gt] GREATER THAN
                             wheres.push({
                                 'column': filterKey,
                                 'condition': '>',

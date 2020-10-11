@@ -36,6 +36,7 @@ Parameter type | Schema | Example | Description
 -- | --- | --- | ----
 **Filter** |
 equal to = | filter[column_name]=value | ?filter[country]=bh
+not equal to <> | filter[column_name][not]=value | ?filter[country][not]=bh
 greater than > | filter[column_name][gt]=value | ?filter[age][gt]=18
 less than < | filter[column_name][lt]=value | ?filter[score][lt]=100
 greater than or equal to <= | filter[column_name][lte]=value | ?filter[score][lte]=100
