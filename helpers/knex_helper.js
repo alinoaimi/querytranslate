@@ -22,7 +22,16 @@ function buildKnex(easy) {
                 stmnt = stmnt.whereIn(whereItem.column, whereItem.value)
 
             } else {
-                stmtn = stmnt.where(whereItem.column, whereItem.condition, whereItem.value)
+
+                if(whereItem.value == '{null}') {
+                    if(whereItem.condition == '=') {
+                        stmtn = stmnt.whereNull(whereItem.column)
+                    } else if(whereItem.condition == '<>') {
+                        stmtn = stmnt.whereNotNull(whereItem.column)
+                    }
+                } else {
+                    stmtn = stmnt.where(whereItem.column, whereItem.condition, whereItem.value)
+                }
             }
 
         }
