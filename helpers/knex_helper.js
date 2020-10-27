@@ -12,11 +12,14 @@ function buildKnex(easy) {
 
     let stmnt = easy.knex(easy.tableName)
 
+
+
     // filter
     if(easy.filter != null && easy.filter.length > 0) {
 
         for(let whereItem of easy.filter) {
 
+            whereItem.column = easy.tableName + '.' + whereItem.column;
 
             if(whereItem.condition.toLowerCase() == 'in') {
                 stmnt = stmnt.whereIn(whereItem.column, whereItem.value)

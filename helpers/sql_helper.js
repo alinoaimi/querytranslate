@@ -14,7 +14,7 @@ function buildSQL(easy) {
     let sqlQuery = 'SELECT '
     let fromVal = '*';
 
-    console.log(typeof easy.columns)
+    // console.log(typeof easy.columns)
     if(Array.isArray(easy.columns)) {
 
         let columnI = 0;
