@@ -1,58 +1,53 @@
 function buildKnex(easy) {
     let knex = null;
     try {
-        knex = require('knex')
-    } catch(e) {
+        knex = require("knex");
+    } catch (e) {}
 
-    }
-    
-    if(knex == null) {
-        return 'knex is not installed'
+    if (knex == null) {
+        return "knex is not installed";
     }
 
-    let stmnt = easy.knex(easy.tableName)
+    let stmnt = easy.knex(easy.tableName);
 
-
+    // console.log(typeof easy.columns)
+    if (Array.isArray(easy.columns)) {
+        stmnt.select(easy.columns.join());
+    }
 
     // filter
-    if(easy.filter != null && easy.filter.length > 0) {
+    if (easy.filter != null && easy.filter.length > 0) {
+        for (let whereItem of easy.filter) {
+            whereItem.column = easy.tableName + "." + whereItem.column;
 
-        for(let whereItem of easy.filter) {
-
-            whereItem.column = easy.tableName + '.' + whereItem.column;
-
-            if(whereItem.condition.toLowerCase() == 'in') {
-                stmnt = stmnt.whereIn(whereItem.column, whereItem.value)
-
+            if (whereItem.condition.toLowerCase() == "in") {
+                stmnt = stmnt.whereIn(whereItem.column, whereItem.value);
             } else {
-
-                if(whereItem.value == '{null}') {
-                    if(whereItem.condition == '=') {
-                        stmtn = stmnt.whereNull(whereItem.column)
-                    } else if(whereItem.condition == '<>') {
-                        stmtn = stmnt.whereNotNull(whereItem.column)
+                if (whereItem.value == "{null}") {
+                    if (whereItem.condition == "=") {
+                        stmtn = stmnt.whereNull(whereItem.column);
+                    } else if (whereItem.condition == "<>") {
+                        stmtn = stmnt.whereNotNull(whereItem.column);
                     }
                 } else {
-                    stmtn = stmnt.where(whereItem.column, whereItem.condition, whereItem.value)
+                    stmtn = stmnt.where(
+                        whereItem.column,
+                        whereItem.condition,
+                        whereItem.value
+                    );
                 }
             }
-
         }
     }
-
 
     // now the order by stuff
-    if(easy.sorts != null && easy.sorts.length > 0) {
-
-        for(let sortItem of easy.sorts) {
-            stmnt = stmnt.orderBy(sortItem.column, sortItem.type)
+    if (easy.sorts != null && easy.sorts.length > 0) {
+        for (let sortItem of easy.sorts) {
+            stmnt = stmnt.orderBy(sortItem.column, sortItem.type);
         }
-
     }
 
-
-    return stmnt
-    
+    return stmnt;
 }
 
-module.exports = buildKnex
+module.exports = buildKnex;
