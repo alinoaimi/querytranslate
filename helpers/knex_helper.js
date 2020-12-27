@@ -12,7 +12,9 @@ function buildKnex(easy) {
 
     // console.log(typeof easy.columns)
     if (Array.isArray(easy.columns)) {
-        stmnt.select(easy.columns.join());
+        for(const column23jkb4 of easy.columns) {
+            stmnt.select(column23jkb4);
+        }
     }
 
     // filter
