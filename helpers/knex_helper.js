@@ -24,6 +24,8 @@ function buildKnex(easy) {
 
             if (whereItem.condition.toLowerCase() == "in") {
                 stmnt = stmnt.whereIn(whereItem.column, whereItem.value);
+            } else if (whereItem.condition.toLowerCase() == "or in") {
+                stmnt = stmnt.orWhereIn(whereItem.column, whereItem.value);
             } else {
                 if (whereItem.value == "{null}") {
                     if (whereItem.condition == "=") {

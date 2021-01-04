@@ -83,6 +83,12 @@ exports.translate = function (params) {
                                 'condition': 'IN',
                                 'value': filterSubVal
                             })
+                        } else if (filterSubKey == 'or_in') { // [in] IN
+                            wheres.push({
+                                'column': filterKey,
+                                'condition': 'OR IN',
+                                'value': filterSubVal
+                            })
                         }
                     }
                 }
