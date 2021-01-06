@@ -23,8 +23,14 @@ function buildKnex(easy) {
             whereItem.column = easy.tableName + "." + whereItem.column;
 
             if (whereItem.condition.toLowerCase() == "in") {
+                if(!Array.isArray(whereItem.value)) {
+                    whereItem.value = [whereItem.value];
+                }
                 stmnt = stmnt.whereIn(whereItem.column, whereItem.value);
             } else if (whereItem.condition.toLowerCase() == "or in") {
+                if(!Array.isArray(whereItem.value)) {
+                    whereItem.value = [whereItem.value];
+                }
                 stmnt = stmnt.orWhereIn(whereItem.column, whereItem.value);
             } else {
                 if (whereItem.value == "{null}") {
