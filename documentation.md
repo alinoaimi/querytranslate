@@ -66,7 +66,7 @@ columns to return | columns=column1,column2,column3 | ?columns=id,name,age,score
 ## Parsing the query
 **Example**
 ```javascript
-let QueryTranslate = require('query_translate')
+const QueryTranslate = require('query_translate')
 
 let translatedQuery = QueryTranslate.translate({
     format: 'sql', // format can be one of 'sql', 'knex' or 'easy'
